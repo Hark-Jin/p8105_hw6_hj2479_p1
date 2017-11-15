@@ -1,0 +1,21 @@
+{
+    "collab_server" : "",
+    "contents" : "---\ntitle: \"p8105_hw6_problem1\"\nauthor: \"He Jin & Chuhan Zhou\"\ndate: \"11/15/2017\"\noutput: \n  flexdashboard::flex_dashboard:\n    orientation: columns\n    vertical_layout: fill\n---\n\n```{r setup, include=FALSE}\nknitr::opts_chunk$set(echo = TRUE)\nlibrary(flexdashboard)\nlibrary(tidyverse)\nlibrary(janitor)\nlibrary(stringr)\nlibrary(forcats)\nlibrary(viridis)\nlibrary(plotly)\n```\n\nColumn {data-width=650}\n-----------------------------------------------------------------------\n\n### Chart A\n\n```{r}\n\n```\n\nColumn {data-width=350}\n-----------------------------------------------------------------------\n\n### Chart B\n\n```{r}\n\n```\n\n### Chart C\n\n```{r}\n\n```\n",
+    "created" : 1510779441120.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "29668524",
+    "id" : "33B36546",
+    "lastKnownWriteTime" : 1510779508,
+    "last_content_update" : 1510779508565,
+    "path" : "~/Desktop/Columbia/Semester 1/DATA SCIENCE - 1/homework/p8105_hw6_hj2479_p1/p8105_hw6_problem1.Rmd",
+    "project_path" : "p8105_hw6_problem1.Rmd",
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 1,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_markdown"
+}
