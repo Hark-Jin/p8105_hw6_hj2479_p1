@@ -9,7 +9,7 @@ output:
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(echo = FALSE)
 library(flexdashboard)
 library(tidyverse)
 library(janitor)
@@ -17,6 +17,8 @@ library(stringr)
 library(forcats)
 library(viridis)
 library(plotly)
+instacart = read_csv("../data/orders_train_allvars.csv") %>%
+  clean_names() 
 ```
 
 Column {data-width=650}
@@ -25,7 +27,13 @@ Column {data-width=650}
 ### Chart A
 
 ```{r}
-
+instacart %>% 
+  group_by(department) %>%
+  summarize(items_ordered = n()) %>%
+  mutate(department = as.factor(department),
+         department = fct_reorder(department, items_ordered)) %>% 
+  plot_ly(x = ~department, y = ~items_ordered, 
+          color = ~department, type = "bar", alpha = 0.8) 
 ```
 
 Column {data-width=350}
@@ -34,11 +42,20 @@ Column {data-width=350}
 ### Chart B
 
 ```{r}
-
+instacart %>%
+  group_by(department,aisle) %>%
+  summarize(items_ordered = n()) %>%
+  mutate(aisle = fct_reorder(aisle, items_ordered)) %>%
+  plot_ly(x = ~aisle, y = ~items_ordered, type = "scatter",              mode = "markers",
+          alpha = 0.5, 
+          color = ~aisle)
 ```
 
 ### Chart C
 
 ```{r}
+instacart %>%
+  group_by(order_dow,department) %>%
+  plot_ly(x = ~department, y = ~order_hour_of_day, color = ~department, type = "box", colors = "Set2")
 
 ```
