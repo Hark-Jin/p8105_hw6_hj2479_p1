@@ -1,0 +1,20 @@
+{
+    "collab_server" : "",
+    "contents" : "---\ntitle: \"Instacart Dashboard\"\nauthor: \"He Jin & Chuhan Zhou\"\ndate: \"11/15/2017\"\noutput: \n  flexdashboard::flex_dashboard:\n    orientation: columns\n    vertical_layout: fill\n---\n\n```{r setup, include=FALSE}\nknitr::opts_chunk$set(echo = FALSE)\nlibrary(flexdashboard)\nlibrary(tidyverse)\nlibrary(janitor)\nlibrary(stringr)\nlibrary(forcats)\nlibrary(viridis)\nlibrary(plotly)\ninstacart = read_csv(\"../data/orders_train_allvars.csv\") %>%\n  clean_names() \n```\n\nColumn {data-width=400}\n-----------------------------------------------------------------------\n\n### Chart A\n\n```{r}\ninstacart %>% \n  group_by(department) %>%\n  summarize(items_ordered = n()) %>%\n  mutate(department = as.factor(department),\n         department = fct_reorder(department, items_ordered)) %>% \n  plot_ly(x = ~department, y = ~items_ordered, \n          color = ~department, type = \"bar\", alpha = 0.8) \n```\n\nColumn {data-width=600}\n-----------------------------------------------------------------------\n\n### Chart B\n\n```{r}\n  aisle_top = instacart %>%\n  group_by(department,aisle) %>%\n  summarize(items_ordered = n()) %>%\n  top_n(3) %>%\n  ungroup() %>%\n  mutate(aisle = as.factor(aisle),\n         aisle = fct_reorder(aisle, items_ordered)) \n  plot_ly(aisle_top,x = ~aisle, y = ~items_ordered, type = \"bar\",\n          alpha = 0.5, \n          color = ~aisle) %>%\n  layout(showlegend = FALSE)\n```\n\n### Chart C\n\n```{r}\ninstacart %>%\n\n  filter(aisle == aisle_top$aisle) %>%\n  group_by(order_dow,aisle) %>%\n  plot_ly(x = ~aisle, y = ~order_hour_of_day, color = ~aisle, type = \"box\", colors = \"Set2\") %>%\n  layout(showlegend = FALSE)\n\n```\n",
+    "created" : 1510888513183.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "2116858164",
+    "id" : "60A9347B",
+    "lastKnownWriteTime" : 1510945310,
+    "last_content_update" : 1510945310863,
+    "path" : "~/Desktop/Columbia/Semester 1/DATA SCIENCE - 1/homework/p8105_hw6_hj2479_p1/index.Rmd",
+    "project_path" : "index.Rmd",
+    "properties" : {
+    },
+    "relative_order" : 3,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_markdown"
+}

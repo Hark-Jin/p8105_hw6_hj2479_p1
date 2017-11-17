@@ -21,7 +21,7 @@ instacart = read_csv("../data/orders_train_allvars.csv") %>%
   clean_names() 
 ```
 
-Column {data-width=650}
+Column {data-width=400}
 -----------------------------------------------------------------------
 
 ### Chart A
@@ -36,7 +36,7 @@ instacart %>%
           color = ~department, type = "bar", alpha = 0.8) 
 ```
 
-Column {data-width=350}
+Column {data-width=600}
 -----------------------------------------------------------------------
 
 ### Chart B

@@ -1,0 +1,20 @@
+{
+    "collab_server" : "",
+    "contents" : "name: \"p8105_hw6_problem1\"\noutput_dir: \".\"\nnavbar:\n  right:\noutput:\n   flexdashboard::flex_dashboard:\n    orientation: columns\n    vertical_layout: fill",
+    "created" : 1510886183495.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "890644066",
+    "id" : "B63C90AA",
+    "lastKnownWriteTime" : 1510945325,
+    "last_content_update" : 1510945325115,
+    "path" : "~/Desktop/Columbia/Semester 1/DATA SCIENCE - 1/homework/p8105_hw6_hj2479_p1/_site.yml",
+    "project_path" : "_site.yml",
+    "properties" : {
+    },
+    "relative_order" : 4,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "yaml"
+}
