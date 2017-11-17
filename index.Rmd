@@ -47,11 +47,10 @@ Column {data-width=600}
   summarize(items_ordered = n()) %>%
   top_n(3) %>%
   ungroup() %>%
-  mutate(aisle = as.factor(aisle),
-         aisle = fct_reorder(aisle, items_ordered)) 
-  plot_ly(aisle_top,x = ~aisle, y = ~items_ordered, type = "bar",
+  mutate(aisle = as.factor(aisle))
+  plot_ly(aisle_top,x = ~aisle, y = ~items_ordered, type = "scatter",
           alpha = 0.5, 
-          color = ~aisle) %>%
+          color = ~factor(aisle), size = ~items_ordered) %>%
   layout(showlegend = FALSE)
 ```
 
