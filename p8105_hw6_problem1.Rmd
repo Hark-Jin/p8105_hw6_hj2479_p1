@@ -58,9 +58,9 @@ Column {data-width=350}
 ### Chart C
 
 ```{r}
-aisle_top %>%
-  select(aisle)
-inner_join(aisle_top,instacart, by ="aisle") %>%
+instacart %>%
+
+  filter(aisle == aisle_top$aisle) %>%
   group_by(order_dow,aisle) %>%
   plot_ly(x = ~aisle, y = ~order_hour_of_day, color = ~aisle, type = "box", colors = "Set2") %>%
   layout(showlegend = FALSE)
